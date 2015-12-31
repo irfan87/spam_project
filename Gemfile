@@ -5,6 +5,7 @@ gem 'omniauth-facebook'
 gem 'rails', '4.2.5'
 gem 'figaro'
 # Use sqlite3 as the database for Active Record
+# Use as the database for Active Record
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'

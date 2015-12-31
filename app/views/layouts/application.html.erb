@@ -8,7 +8,18 @@
 </head>
 <body>
 
+
+<% if user_signed_in? %>
+
+ Welcome to SPaM,
+<%= link_to "Sign out", destroy_user_session_path, method: "delete", data: { confirm: 'Are you sure?' } %>
+<%= link_to "Edit User",  edit_user_registration_path %>
+<% else %>
+<%= link_to "Sign up", new_user_registration_path %><br>
+<%= link_to "Sign in", new_user_session_path %> <br>
+<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+<% end %><br>
+
 <%= yield %>
 
 </body>
-</html>

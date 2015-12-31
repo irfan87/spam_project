@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SpamProject</title>
+  <title>Spam Project</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<ul>
+	<li><a class="active" href="#">Title</a></li>
+	<li><a href="#">Posts</a></li>
+	<li><a href="#">Videos</a></li>
+	<li><a href="#">Testimonials</a></li>
+	<li><a href="#">Contacts</a></li>
+	<ul style="float:right;list-style-type:none;">
+		<li><a href="#about">About</a></li>
+		<li><a href="#login">Login</a></li>
+	</ul>
+</ul>
 <%= yield %>
 
 </body>

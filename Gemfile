@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'devise'
+gem 'omniauth-facebook'
 gem 'rails', '4.2.5'
 # Use as the database for Active Record
 gem 'pg'

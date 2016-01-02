@@ -15,6 +15,14 @@
  */
 body {margin:0;}
 
+b {
+    font-size: 20px;
+}
+
+i {
+    font-size: 12px;
+}
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -56,10 +64,11 @@ li a.active {
 	background: #f3f3f3;
 	width: 100%;
 	position: fixed;
+    height: 50px;
 }
 
 #main-container{
 	padding: 75px;
-	width: 960px
-
-}
+	width: 1024px;
+    min-width: 800px;
+}  

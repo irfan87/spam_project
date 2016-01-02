@@ -1,29 +1,44 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Posts</h1>
+<div class="row">
+    <div class="col s9">
+      <h2>Today's Top Pick for Education</h2>
+        <table>
+          <thead>
+            <tr></tr>
+          </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.body %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+          <tbody>
+            <% @posts.each do |post| %>
+              <tr>
+                <td><b><%= post.title %></b><br/><i>by <%= post.user %></i></td>
+              </tr>
+              <tr><td><%= post.body %></td></tr>
+              <tr>
+                <td><%= link_to 'Show', post %>
+                <%= link_to 'Edit', edit_post_path(post) %>
+                <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+              <thead><tr></tr></thead>
+            <% end %>
+          </tbody>
+        </table>
 <br>
-
 <%= link_to 'New Post', new_post_path %>
+    </div>
+
+    <div class="col s3"><br><br>
+      <tbody>
+            <% @posts.take(2).each do |post| %>
+              <tr>
+                <td><b><%= post.title %></b><br></td>
+              </tr>
+              <tr><td><%= post.body %></td></tr>
+              <tr>
+                <td><%= link_to 'Show', post %></td>
+              </tr><br><br>
+            <% end %>
+          </tbody>
+    </div>
+
+</div>

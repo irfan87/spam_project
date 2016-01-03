@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   root 'posts#index'
 
-  get 'home/index'
+  # get 'home/index'
 
   resources :posts do
     resources :comments

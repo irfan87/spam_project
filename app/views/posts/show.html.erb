@@ -1,14 +1,13 @@
-<h1> Post Show Page </h1>
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @post.title %>
+  <h5><%= @post.title %></h5>
 </p>
 
 <p>
-  <strong>Body:</strong>
-  <%= @post.body %>
+    <div>
+      <%= @post.body.html_safe %>
+    </div>
 </p>
 
 

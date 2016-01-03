@@ -5,11 +5,16 @@
 		<li><a href="#">Videos</a></li>
 		<li><a href="#">Testimonials</a></li>
 		<li><a href="#">Contacts</a></li>
+		<li>
+			<%= form_tag posts_path, method: :get do %>
+				<%= text_field_tag :q, nil, placeholder: "Search here", id: "search" %>
+			<% end %>
+		</li>
 	</ul>
 	<ul class="nav-right">
 	<% if user_signed_in? %>
 		<li><%= link_to "Sign out", destroy_user_session_path, method: "delete", data: { confirm: 'Are you sure?' } %></li>
-		<li><i class="material-icons"><%= link_to "perm_identity",  edit_user_registration_path %></i></li>
+		<li><i class="material-icons"><%= link_to "perm_identity", user_registration_path %></i></li>
 	<% else %>
 		<li><%= link_to "Sign up", new_user_registration_path %></li>
 		<li><%= link_to "Sign in", new_user_session_path %></li>

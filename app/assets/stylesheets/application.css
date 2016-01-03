@@ -10,9 +10,14 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require jquery-ui
  *= require_tree .
  *= require_self
+ *= require froala_editor.min.css
+ *= require froala_style.min.css
+ *= require font-awesome
  */
+
 body {margin:0;}
 
 b {
@@ -65,6 +70,7 @@ li a.active {
 	width: 100%;
 	position: fixed;
     height: 50px;
+    overflow: auto;
 }
 
 #main-container{
@@ -72,3 +78,18 @@ li a.active {
 	width: 1024px;
     min-width: 800px;
 }  
+
+.footer {
+    background-color: #989898;
+}
+
+#search {
+    height: 1.5rem;
+}
+
+#sharingbutton {
+    /*display: inline;*/
+    text-align: center;
+    display: inline-block;
+    position: relative;
+}

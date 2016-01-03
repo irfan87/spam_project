@@ -1,4 +1,9 @@
-<p id="notice"><%= notice %></p>
+<p id="notice">
+      <%= notice %>
+      <% if @posts.suggestions.any? %>
+        <p>Did you mean <%= @posts.suggestions.first %></p>
+      <% end %>
+</p>
 
 <div class="row">
     <div class="col s9">
@@ -13,7 +18,7 @@
               <tr>
                 <td><b><%= post.title %></b><br/><i>by <%= post.user %></i></td>
               </tr>
-              <tr><td><%= post.body %></td></tr>
+              <tr><td><%= post.body.html_safe %></td></tr>
               <tr>
                 <td><%= link_to 'Show', post %>
                 <%= link_to 'Edit', edit_post_path(post) %>

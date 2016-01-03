@@ -5,8 +5,13 @@ Rails.application.routes.draw do
 
   get 'home/index'
 
+  resources :users, :only => [:index, :show]
+
   resources :posts do
     resources :comments
+    collection do
+      get :autocomplete
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -13,6 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
 //= require jquery-ui
 //= require froala_editor.min.js
+//= require posts.coffee

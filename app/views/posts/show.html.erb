@@ -3,14 +3,22 @@
 <p>
   <h5><%= @post.title %></h5>
 </p>
+by: <%= @post.user.email %> created: <%= @post.created_at %>
+<br>
 View counts: <%= @post.click_count %><br>
-Category:  <%= @post.category %>
 <p>
     <div>
       <%= @post.body.html_safe %>
     </div>
 </p>
-
+<i>filed under:
+    <% a = [] %> 
+      <% @post.categories.each do |category| %>
+        <%a << category.group %>  
+      <% end %>
+    <%= a.join(', ')%></i>
+<br>
+<br>
 <h2>Comments:</h2> 
   <tbody>
     <% @post.comments.each do |comment| %>

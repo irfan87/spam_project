@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'sidekiq'
 gem 'devise'
+gem 'devise-async'
 gem 'omniauth-facebook'
 gem 'rails', '4.2.5'
 gem 'figaro'

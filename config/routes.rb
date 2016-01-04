@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  # devise_for :users, controllers: { sessions: "users/sessions" }
+
   root 'posts#index'
 
   get 'home/index'
 
-  resources :users, :only => [:index, :show]
+  resources :users, :only => [:show]
 
   resources :posts do
     resources :comments

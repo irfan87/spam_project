@@ -18,6 +18,7 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
+
   end
 
   # GET /posts/1/edit
@@ -27,10 +28,24 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
+
     @post = current_user.posts.new(post_params)
 
     respond_to do |format|
       if @post.save
+
+# ------ Categories -----------#
+        groups = []
+        category_params[:categories][:group].split(",").each do |x|
+        group = Category.find_or_initialize_by(group: x)
+        group.save
+        groups << group
+        end
+        
+        @post.categories = groups
+        @post.post_categories.create(post_id: params[:id])
+
+
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
@@ -76,6 +91,11 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:user_id, :title, :body, :category, :click_count)
+      params.require(:post).permit(:user_id, :title, :body, :click_count )
     end
+
+    def category_params
+      params.require(:post).permit(:categories => [:id, :group])
+    end
+
 end

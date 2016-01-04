@@ -1,29 +1,32 @@
-<p id="notice"><%= notice %></p>
+<div id="container">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <h5><%= @post.title %></h5>
-</p>
-View counts: <%= @post.click_count %><br>
-Category:  <%= @post.category %>
-<p>
-    <div>
-      <%= @post.body.html_safe %>
-    </div>
-</p>
+  <p>
+    <h5><%= @post.title %></h5>
+  </p>
+  View counts: <%= @post.click_count %><br>
+  Category:  <%= @post.category %>
+  <p>
+      <div>
+        <%= @post.body.html_safe %>
+      </div>
+  </p>
+  
+  <h2>Comments:</h2> 
+    <tbody>
+      <% @post.comments.each do |comment| %>
+        <tr>
+          <td><%= comment.body %></td>
+          <td><%= link_to 'Edit Comment', "/posts/#{@post.id}/comments/#{comment.id}/edit" %></td> | 
+          <td><%= link_to 'Delete Comment', "/posts/#{@post.id}/comments/#{comment.id}", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr><br>
+      <% end %>
+    </tbody>  
 
-<h2>Comments:</h2> 
-  <tbody>
-    <% @post.comments.each do |comment| %>
-      <tr>
-        <td><%= comment.body %></td>
-        <td><%= link_to 'Edit Comment', "/posts/#{@post.id}/comments/#{comment.id}/edit" %></td> | 
-        <td><%= link_to 'Delete Comment', "/posts/#{@post.id}/comments/#{comment.id}", method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr><br>
-    <% end %>
-  </tbody>  
+    <br>
+    <%= link_to 'New Comment', new_post_comment_path(@post) %><br>
+    <br>
+    <%= link_to 'Edit', edit_post_path(@post) %> |
+    <%= link_to 'Back', posts_path %>
 
-<br>
-<%= link_to 'New Comment', new_post_comment_path(@post) %><br>
-<br>
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+</div>

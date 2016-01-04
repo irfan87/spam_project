@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   root 'posts#index'
 
-  get 'home/index'
+  # get 'home/index'
 
   resources :users, :only => [:show]
 

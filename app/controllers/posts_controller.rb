@@ -4,7 +4,8 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    query = params[:q].presence || "*"
+    @posts = Post.search query, suggest: true
   end
 
   # GET /posts/1
@@ -26,7 +27,7 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.new(post_params)
 
     respond_to do |format|
       if @post.save
@@ -61,6 +62,10 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def autocomplete
+    render json: Post.search(params[:term], fields: [{title: :text_start}], limit: 10).map(&:title)
   end
 
   private

@@ -1,31 +1,24 @@
 <div id="nav-links">
-	<ul class="navi">
-		<li class="navi_contents">
-			<a class="active" href="#">Title</a>
-		</li>
-		<li class="navi_contents">
-			<a href="/posts/new">Posts</a>
-		</li>
-		<li class="navi_contents">
-			<a href="#">Videos</a>
-		</li>
-	</ul>
-	<ul class="navi nav-right">
-		<li class="navi_contents">
-			<a href="#about">About</a>
-		</li>
-		<%if user_signed_in? %>
+	<ul>
+		<li><a class="active" href="/">Title</a></li>
+		<li><a href="/posts">Posts</a></li>
+		<li><a href="#">Category</a></li>
+		<li><a href="#">Video</a></li>
+		<li><a href="#">About</a></li>
 		<li>
-			<!-- <img src=<%= current_user.image %> alt="User" style="width:5px;height:5px;"> -->
-			Hi, <%= current_user.email %>!
+			<%= form_tag posts_path, method: :get do %>
+				<%= text_field_tag :q, nil, placeholder: "Search here", id: "search" %>
+			<% end %>
 		</li>
-		
-		<li><%= link_to "Sign out", destroy_user_session_path, method: "delete", data: { confirm: 'Are you sure?' } %></li>
-		<li><%= link_to "Edit User",  edit_user_registration_path %></li>
-		<% else %>
-		<li class="navi_contents">
-			<a href="/users/sign_in">Login</a>
-		</li>
-		<% end %>
 	</ul>
+	<ul class="nav-right">
+	<% if user_signed_in? %>
+		<li><%= link_to "Sign out", destroy_user_session_path, method: "delete", data: { confirm: 'Are you sure?' } %></li>
+		<li><i class="material-icons"><%= link_to "perm_identity", user_registration_path %></i></li>
+	<% else %>
+		<li><%= link_to "Sign up", new_user_registration_path %></li>
+		<li><%= link_to "Sign in", new_user_session_path %></li>
+		<li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
+	</ul>
+	<% end %>
 </div>

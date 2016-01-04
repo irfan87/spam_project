@@ -1,12 +1,25 @@
 Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
+
+  resources :users, only: :show do
+      post :generate_new_password_email
+  end
+
+  # devise_for :users, controllers: { sessions: "users/sessions" }
+
   root 'posts#index'
 
   # get 'home/index'
 
+  resources :users, :only => [:show]
+
   resources :posts do
     resources :comments
+    collection do
+      get :autocomplete
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

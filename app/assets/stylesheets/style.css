@@ -43,19 +43,21 @@ body {margin:0;}
     position: fixed;
 }
 
+#main-container{
+    width: auto
+}
+
 #container {
     padding: 20px 80px 10px 60px;
 } 
 
-.all_posts{
+.all_posts, #footer-nav{
     list-style: none;
 }
 
 @media all and (min-width: 300px){
     #container {
-        padding: 19px 86px 28px 85px;
-        font-size: 1.05em;
         float: left;
-        margin: 20px;
+        clear: both;
     }
 }

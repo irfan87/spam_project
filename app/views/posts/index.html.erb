@@ -5,15 +5,12 @@
     <% @posts.each do |post| %>
     <ul class="all_posts">
       <li class="all_posts_content">
-        <h2><a href="/posts/<%= post.id %>/edit">
-          <%= post.title %>
-        </a></h2>
+        <h2><%= post.title %></h2>
       </li>
       <li>
         <%= truncate post.body, length: 900 %>
         <a href="/posts/<%= post.id %>">Read More</a>
       </li>
-      <!-- <li><%= post.body %></li> -->
     </ul>
     <% end %>
   </div>

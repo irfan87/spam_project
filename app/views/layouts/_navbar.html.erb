@@ -9,19 +9,23 @@
 		<li class="navi_contents">
 			<a href="#">Videos</a>
 		</li>
-		<li class="navi_contents">
-			<a href="#">Testimonials</a>
-		</li>
-		<li class="navi_contents">
-			<a href="#">Contacts</a>
-		</li>
 	</ul>
 	<ul class="navi nav-right">
 		<li class="navi_contents">
 			<a href="#about">About</a>
 		</li>
-		<li class="navi_contents">
-			<a href="#login">Login</a>
+		<%if user_signed_in? %>
+		<li>
+			<!-- <img src=<%= current_user.image %> alt="User" style="width:5px;height:5px;"> -->
+			Hi, <%= current_user.email %>!
 		</li>
+		
+		<li><%= link_to "Sign out", destroy_user_session_path, method: "delete", data: { confirm: 'Are you sure?' } %></li>
+		<li><%= link_to "Edit User",  edit_user_registration_path %></li>
+		<% else %>
+		<li class="navi_contents">
+			<a href="/users/sign_in">Login</a>
+		</li>
+		<% end %>
 	</ul>
 </div>

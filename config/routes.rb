@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
+
+  resources :users, only: :show do
+      post :generate_new_password_email
+  end
+
   # devise_for :users, controllers: { sessions: "users/sessions" }
 
   root 'posts#index'

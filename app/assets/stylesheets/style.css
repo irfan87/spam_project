@@ -55,9 +55,20 @@ body {margin:0;}
     list-style: none;
 }
 
+#comments_container {
+    width: 800px;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    padding: 20px;
+    height: 150px;
+}
+
 @media all and (min-width: 300px){
     #container {
+        padding: 19px 86px 28px 85px;
+        font-size: 1.05em;
         float: left;
-        clear: both;
+        margin: 20px;
     }
 }

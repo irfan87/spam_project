@@ -1,11 +1,17 @@
+/* body */
+.post_contents {
+	border: 1px solid black;
+	padding: 4px 26px 21px;
+	margin-bottom: 14px;
+}
+
 /* footer */
 .footer {
 	position: relative;
-	height: 50px;
-
-	margin: 124px 1px 7px 0px;
-    width: 1233px;
-    float: left;
+	height: 100%;
+	bottom: 0;
+	width: 100%;
+	background-color: #f5f5f5;
 }
 
 .trademark {

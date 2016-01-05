@@ -1,0 +1,22 @@
+<div class="col-md-4">
+  <h4>Hot Pick!</h4>
+  <% @posts.take(3).each do |post| %>
+  <div class="hot_picks_nav">
+    <h4><%= post.title %></h4>
+    <div class="col-xs-3">
+      <a href="#" class="thumbnail">
+        <img src="../images/125x125.jpg" alt="125x125">
+      </a>
+    </div>
+    <div>
+      <p>
+        <%= truncate post.body, length: 200 %>
+        <a href="/posts/<%= post.id %>">Read More</a>
+      </p>
+      <strong>
+        Posted by <%= post.user.username.capitalize %> <%= time_ago_in_words(post.updated_at) %> ago.
+      </strong>
+    </div>
+  </div>
+  <% end %>
+</div>

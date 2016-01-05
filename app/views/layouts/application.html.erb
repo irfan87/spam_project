@@ -8,13 +8,17 @@
   <%= tinymce_assets %>
 </head>
 <body>
-	<div id="nav-container">
-		<%= render "layouts/navbar" %>
-	</div>
-	<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <div id="main-container">
-  		<%= yield %>
-  	</div>
+	<div class="container-fluid">
+   <div class="row">
+    <div id="nav-container">
+      <%= render "layouts/navbar" %>
+    </div>
+    <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <div id="main-container">
+        <%= yield %>
+      </div>
     <%= render "layouts/footer" %>
+   </div> 
+  </div>
 </body>

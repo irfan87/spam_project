@@ -6,6 +6,8 @@ gem 'devise-async'
 gem 'omniauth-facebook'
 gem 'rails', '4.2.5'
 gem 'figaro'
+gem 'kaminari'
+
 # Use sqlite3 as the database for Active Record
 # Use as the database for Active Record
 gem 'pg'

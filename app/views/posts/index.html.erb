@@ -4,36 +4,49 @@
       <%= notice %>
       <% if @posts.suggestions.any? %>
         <p>Did you mean <%= @posts.suggestions.first %></p>
+        <% else %>
+        <p>Unable to retrieve</p>
       <% end %>
     </p>
   </div>
+
   <div class="row">
     <div class="col-md-8">
       <h2>Hot Education Topic!</h2>
-      <% @posts.each do |post| %>
+      <%= paginate @post %>
+      <% @post.each do |post| %>
       <div class="post_contents">
         <h3><%= post.title %></h3>
         <div>
-          <p>Views by <%= post.click_count %> peoples.</p>
+          <p>Viewed by <%= post.click_count %> peoples.</p>
         </div>
         <div>
           <p>
-            <%= truncate post.body.html_safe, length:550 %>
+            <%= truncate post.body.html_safe, length:350 %>
             <a href="/posts/<%= post.id %>">Read More</a>
           </p>
         </div>
         <div>
           <strong>Posted by 
-            <%= post.user.username.capitalize %> about 
+            <%= post.user.username.capitalize %>
             <%= time_ago_in_words(post.updated_at) %> ago.
           </strong>
         </div>
         <p>
-          
         </p>
+        <tr>
+        <td><%= link_to 'Show', post %>
+            <%= link_to 'Edit', edit_post_path(post) %>
+            <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
       </div>
       <% end %>
+      <br>
+      <%= link_to 'New Post', new_post_path %>
     </div>
+
+   <%= render 'layouts/hot_picks'%>
+
     <div class="col-md-4">
       <h4>Hot Pick!</h4>
       <% @posts.take(2).each do |post| %>

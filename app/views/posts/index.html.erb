@@ -13,8 +13,11 @@
             <tr></tr>
           </thead>
 
+          <!-- adding in pagination here -->
+          <%= paginate @post %>
+
           <tbody>
-            <% @posts.each do |post| %>
+            <% @post.each do |post| %>
               <tr>
                 <td><b><%= post.title %></b><br/><i>by <%= post.user.username.capitalize %></i>&emsp;<i>Views: <%= post.click_count %></i></td>
               </tr>

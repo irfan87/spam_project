@@ -11,24 +11,6 @@
       </div>
     <% end %>
 
-    <div class="field">
-      <%= f.label :title %><br>
-      <%= f.text_field :title %>
-    </div>
-    <div class="field">
-    <%= f.label :category %><br>
-    <%= f.text_field :category %>
-    </div>
-    <div class="field">
-      <%= f.label :body %><br>
-      <%= f.text_area :body, id: "wysiwyg" %>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-  <% end %>
-
-<<<<<<< HEAD
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
@@ -60,12 +42,3 @@
     toolbarButtons: ['bold', 'italic', 'underline', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'insertLink', 'html'],
  })
 </script>
-=======
-  <script> 
-   $('#wysiwyg').froalaEditor({
-      toolbarInline: false,
-      heightMin: '300px',
-      toolbarButtons: ['bold', 'italic', 'underline', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'insertLink', 'html', 'insertImage'],
-   })
-  </script>
->>>>>>> cc53b17ad76a45cd43b1901aaa559cb0740a19ae

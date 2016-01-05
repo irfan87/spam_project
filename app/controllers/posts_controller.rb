@@ -6,6 +6,8 @@ class PostsController < ApplicationController
   def index
     query = params[:q].presence || "*"
     @posts = Post.search query, suggest: true
+    #new @posts for pagination
+    @post = Post.order(click_count: :desc).page(params[:page]).per(3)
   end
 
   # GET /posts/1

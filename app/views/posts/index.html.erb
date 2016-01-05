@@ -4,6 +4,8 @@
       <%= notice %>
       <% if @posts.suggestions.any? %>
         <p>Did you mean <%= @posts.suggestions.first %></p>
+        <% else %>
+        <p>Unable to retrieve</p>
       <% end %>
     </p>
   </div>
@@ -14,17 +16,17 @@
       <div class="post_contents">
         <h3><%= post.title %></h3>
         <div>
-          <p>Views by <%= post.click_count %> peoples.</p>
+          <p>Viewed by <%= post.click_count %> peoples.</p>
         </div>
         <div>
           <p>
-            <%= truncate post.body.html_safe, length:550 %>
+            <%= truncate post.body.html_safe, length:350 %>
             <a href="/posts/<%= post.id %>">Read More</a>
           </p>
         </div>
         <div>
           <strong>Posted by 
-            <%= post.user.username.capitalize %> about 
+            <%= post.user.username.capitalize %>
             <%= time_ago_in_words(post.updated_at) %> ago.
           </strong>
         </div>
@@ -34,27 +36,6 @@
       </div>
       <% end %>
     </div>
-    <div class="col-md-4">
-      <h4>Hot Pick!</h4>
-      <% @posts.take(2).each do |post| %>
-      <div>
-        <h4><%= post.title %></h4>
-        <div class="col-xs-3">
-          <a href="#" class="thumbnail">
-            <img src="../images/125x125.jpg" alt="125x125">
-          </a>
-        </div>
-        <div>
-          <p>
-            <%= truncate post.body, length: 200 %>
-            <a href="/posts/<%= post.id %>">Read More</a>
-          </p>
-          <strong>
-            Posted by <%= post.user.username.capitalize %> <%= time_ago_in_words(post.updated_at) %> ago.
-          </strong>
-        </div>
-      </div>
-      <% end %>
-    </div>
+   <%= render 'layouts/hot_picks'%>
   </div>
 </div>

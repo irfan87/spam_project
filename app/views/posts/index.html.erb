@@ -7,10 +7,12 @@
       <% end %>
     </p>
   </div>
+
   <div class="row">
     <div class="col-md-8">
       <h2>Hot Education Topic!</h2>
-      <% @posts.each do |post| %>
+      <%= paginate @post %>
+      <% @post.each do |post| %>
       <div class="post_contents">
         <h3><%= post.title %></h3>
         <div>
@@ -29,11 +31,18 @@
           </strong>
         </div>
         <p>
-          
         </p>
+        <tr>
+        <td><%= link_to 'Show', post %>
+            <%= link_to 'Edit', edit_post_path(post) %>
+            <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
       </div>
       <% end %>
+      <br>
+      <%= link_to 'New Post', new_post_path %>
     </div>
+
     <div class="col-md-4">
       <h4>Hot Pick!</h4>
       <% @posts.take(2).each do |post| %>

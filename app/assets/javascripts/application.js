@@ -15,5 +15,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery-ui
-//= require froala_editor.min.js
+//= require tinymce
 //= require posts.coffee

@@ -27,9 +27,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'meta-tags-helpers'
 
-# Froala plugin for dynamic form
-gem 'wysiwyg-rails'
-gem 'font-awesome-rails'
+# Tinymce plugin for dynamic form
+gem 'tinymce-rails'
 
 # Searching made easy
 gem 'searchkick'

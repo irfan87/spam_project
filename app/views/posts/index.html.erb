@@ -59,7 +59,7 @@
         </div>
         <div>
           <p>
-            <%= truncate post.body, length: 200 %>
+            <%= truncate post.body.html_safe, length: 200 %>
             <a href="/posts/<%= post.id %>">Read More</a>
           </p>
           <strong>

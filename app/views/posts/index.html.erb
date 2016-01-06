@@ -1,13 +1,15 @@
 <div class="container">
   <%= render "layouts/carousel"%>
+  
   <div class="row">
     <p id="notice">
       <%= notice %>
       <% if @posts.suggestions.any? %>
-        <p>Did you mean <%= @posts.suggestions.first %></p> 
+        <p>Did you mean <%= @posts.suggestions.first %></p>
       <% end %>
     </p>
   </div>
+  
   <div class="row">
     <div class="col-md-8">
       <h2>Hot Education Topic!</h2>
@@ -27,6 +29,7 @@
         </div>
         <div>
           <p>
+            <%= link_to image_tag(post.photo_url(:thumb)), post.photo_url %>
             <%= truncate post.body.html_safe, length:350 %>
             <a href="/posts/<%= post.id %>">Read More</a>
           </p>

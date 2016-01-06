@@ -43,6 +43,19 @@ body {
 	background-color: orange !important;
 }
 
+/* anchor */
+.dropdown > #dropdown-hover  {
+	color: black;
+	text-decoration: none;
+	width: 116px;
+
+	&:hover{
+		text-decoration: none;
+		color: orange;
+		width: 116px;
+	}
+}
+
 /* footer */
 .footer {
 	position: absolute;
@@ -61,5 +74,8 @@ body {
 
 /* carousel */
 .carousel_images {
-	margin-top: -72px;
+	float: left;
+    width: 100%;
+    clear: both;
+    margin-top: -62px;
 }

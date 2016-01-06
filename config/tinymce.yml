@@ -10,3 +10,5 @@ alternate:
   toolbar: styleselect | bold italic | undo redo | table | 
   plugins:
     - table
+    - media
+  media_live_embeds: true

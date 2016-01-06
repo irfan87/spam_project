@@ -23,7 +23,7 @@
           <p>
             <strong>
               Posted by <%= post.user.username.capitalize %>
-              <%= time_ago_in_words(post.updated_at) %> ago and viewed by <%= post.click_count %> peoples.
+              <%= time_ago_in_words(post.created_at) %> ago and viewed by <%= post.click_count %> peoples.
             </strong>
           </p>
         </div>
@@ -38,8 +38,6 @@
         </p>
       </div>
       <% end %>
-      <br>
-      <%= link_to 'New Post', new_post_path %>
     </div>
 
    <%= render 'layouts/hot_picks'%>

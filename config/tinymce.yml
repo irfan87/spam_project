@@ -2,9 +2,13 @@ default:
   plugins:
     - image
     - link
+    - media
+    - uploadimage
 
 alternate:
   selector: textarea.table-editor
-  toolbar: styleselect | bold italic | undo redo | table
+  toolbar: styleselect | bold italic | undo redo | table | 
   plugins:
     - table
+    - media
+  media_live_embeds: true

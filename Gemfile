@@ -22,6 +22,11 @@ gem 'bootstrap-sass'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+# Image Upload
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
+
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
@@ -30,6 +35,7 @@ gem 'meta-tags-helpers'
 
 # Tinymce plugin for dynamic form
 gem 'tinymce-rails'
+gem 'tinymce-rails-imageupload', github: 'PerfectlyNormal/tinymce-rails-imageupload'
 
 # Searching made easy
 gem 'searchkick'

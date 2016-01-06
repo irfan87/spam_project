@@ -2,7 +2,6 @@
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
         <ul>
         <% @post.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -17,20 +16,23 @@
   </div>
 
   <div>
-  <%= f.fields_for :categories do |category| %>
-      
-        <%= category.label :group %>
-        <%= category.text_field :group %>
-  
+    <%= f.fields_for :categories do |category| %>
+      <%= category.label :group %>
+      <%= category.text_field :group %>
   <% end %>
   </div>
-
 
   <div class="field">
     <%= f.label :body %><br>
     <%= f.text_area :body, :class => "tinymce", :rows => 40, :cols => 120 %>
     <%= tinymce %>
   </div>
+
+  <div class="field">
+    <%= f.label :photo %><br>
+    <%= f.file_field :photo %>
+  </div><br>  
+
   <div class="actions">
     <%= f.submit %>
   </div>

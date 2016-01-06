@@ -8,10 +8,8 @@ devise_for :users, controllers: {registrations: 'users/registrations', omniauth_
   end
 
   # devise_for :users, controllers: { sessions: "users/sessions" }
-
   root 'posts#index'
-  
-  # get 'home/index'
+  post '/tinymce_assets' => 'tinymce_assets#create'
 
   resources :users, :only => [:show]
 
@@ -21,6 +19,7 @@ devise_for :users, controllers: {registrations: 'users/registrations', omniauth_
       get :autocomplete
     end
   end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

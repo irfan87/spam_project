@@ -3,12 +3,12 @@ default:
     - image
     - link
     - media
+    - uploadimage
 
 alternate:
   selector: textarea.table-editor
-  toolbar: styleselect | bold italic | undo redo | table | image media
+  toolbar: styleselect | bold italic | undo redo | table | 
   plugins:
     - table
-    - image
     - media
   media_live_embeds: true

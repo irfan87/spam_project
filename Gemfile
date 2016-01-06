@@ -34,6 +34,7 @@ gem 'meta-tags-helpers'
 
 # Tinymce plugin for dynamic form
 gem 'tinymce-rails'
+gem 'tinymce-rails-imageupload', github: 'PerfectlyNormal/tinymce-rails-imageupload'
 
 # Searching made easy
 gem 'searchkick'

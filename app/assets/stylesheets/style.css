@@ -32,6 +32,7 @@ body {
 /* navbar-default */
 .navbar-default {
 	background-color: orange;
+	font-weight: bold;
 }
 
 .navbar-header > a, .navbar-nav > li > a {

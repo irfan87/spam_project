@@ -1,0 +1,21 @@
+<div class="container-fluid">
+	<div class="row-fluid">
+		<h2>Comments: </h2>
+		<div>
+			<%= form_for [@post, Comment.new] do |f|%>
+				<div class="field">
+					<%= f.text_area :body, class:"form-control" %>
+				</div>
+				<br />
+				<div>
+					<%= f.submit'Post New Comment', class: "btn btn-primary" %>
+				</div>
+			<% end %>
+		</div>
+		<div>
+			<% @post.comments.each do |comment| %>
+			<p><%= render partial: comment %></p>
+			<% end %>
+		</div>
+	</div>
+</div>

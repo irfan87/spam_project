@@ -29,16 +29,36 @@ body {
 	padding: 4px 20px 15px;
 }
 
+/* navbar-default */
+.navbar-default {
+	background-color: orange;
+}
+
+.navbar-header > a, .navbar-nav > li > a {
+	color: white !important;
+}
+
+.navbar-nav > li > a:hover {
+	background-color: orange !important;
+}
+
 /* footer */
 .footer {
 	position: absolute;
-	bottom: 0;
-	background-color: #f5f5f5;
-	width: 100%;
-	height: 60px;
+    bottom: 0;
+    background-color: orange;
+    width: 100%;
+    height: 146px;
+    margin: 13px 15px -117px 0;
+    padding: 10px 7px 0 0;
+    color: white;
 }
 
 .trademark {
 	text-align: center;
 }
 
+/* carousel */
+.carousel_images {
+	margin-top: -72px;
+}

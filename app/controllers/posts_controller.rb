@@ -6,6 +6,12 @@ class PostsController < ApplicationController
   def index
     query = params[:q].presence || "*"
     @posts = Post.search query, suggest: true
+
+      if !current_user.nil?
+        if current_user.username.nil?
+          redirect_to edit_user_registration_path
+      end
+    end
   end
 
   # GET /posts/1

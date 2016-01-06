@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+	resourcify
 	belongs_to	:user # need to look into User#admin function
 	has_many	:comments
 	has_many	:categories, through: :post_categories

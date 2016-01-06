@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  rolify
+  serialize :role_ids
+  resourcify
   # Include default ldevise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
@@ -13,6 +16,7 @@ class User < ActiveRecord::Base
 	  :uniqueness => { :case_sensitive => false }, unless: -> { from_omniauth? },
       # :format => { with: /\A[a-zA-Z]+\z/ },
       :length => { in: 4..20 }, unless: -> { from_omniauth? }
+
 
 	private
 

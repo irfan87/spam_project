@@ -36,7 +36,11 @@
       </div>
       <% end %>
       <br>
+      
+    <% if can? :create, Post %>
       <%= link_to 'New Post', new_post_path %>
+    <% end %>
+
     </div>
 
    <%= render 'layouts/hot_picks'%>

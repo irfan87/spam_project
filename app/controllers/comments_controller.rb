@@ -1,19 +1,18 @@
 class CommentsController < ApplicationController
 	before_action :set_comments, only: [:show, :edit, :update, :destroy]
 
-	def new
-    @post = Post.find(params[:post_id])
-	  @comment = Comment.new
-	end
-
 	def create
   	 @post = Post.find(params[:post_id])
      @comment = @post.comments.new(comment_params)
+     @comment.user = current_user
+     @comment.update(body: @comment.body)
+     @comment.save
 
-   if @comment.save
-     redirect_to "/posts/#{@post.id}"
-   else
-    render :new
+     if @comment.save
+       # redirect_to "/posts/#{@post.id}"
+       redirect_to @post
+     else
+      render :new
     end
   end
 
@@ -55,7 +54,7 @@ private
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:post_id, :body)
+      params.require(:comment).permit(:post_id, :body, :user_id)
     end
 
 end

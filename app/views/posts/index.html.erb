@@ -1,50 +1,45 @@
-<p id="notice">
+<div class="container">
+  <%= render "layouts/carousel"%>
+  <div class="row">
+    <p id="notice">
       <%= notice %>
       <% if @posts.suggestions.any? %>
-        <p>Did you mean <%= @posts.suggestions.first %></p>
+        <p>Did you mean <%= @posts.suggestions.first %></p> 
       <% end %>
-</p>
-
-<div class="row">
-    <div class="col s9">
-      <h2>Today's Top Pick for Education</h2>
-
-     
-        <table>
-          <thead>
-            <tr></tr>
-          </thead>
-
-          <tbody>
-            <% @posts.each do |post| %>
-              <tr>
-                <td><b><%= post.title %></b><br/><i>by <%= post.user.username.capitalize %></i>&emsp;<i>Views: <%= post.click_count %></i></td>
-              </tr>
-              <tr><td><%= post.body.html_safe %></td></tr>
-              <tr>
-                <td><%= link_to 'Show', post %>
-                <%= link_to 'Edit', edit_post_path(post) %>
-                <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              </tr>
-              <thead><tr></tr></thead>
-          <% end %>
-          </tbody>
-        </table>
-<br>
-<%= link_to 'New Post', new_post_path %>
+    </p>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <h2>Hot Education Topic!</h2>
+      <%= paginate @post %>
+      <% @post.each do |post| %>
+      <div class="post_contents">
+        <h3>
+          <a href="/posts/<%= post.id %>"><%= post.title %></a>
+        </h3>
+        <div>
+          <p>
+            <strong>
+              Posted by <%= post.user.username.capitalize %>
+              <%= time_ago_in_words(post.updated_at) %> ago and viewed by <%= post.click_count %> peoples.
+            </strong>
+          </p>
+        </div>
+        <div>
+          <p>
+            <%= truncate post.body.html_safe, length:350 %>
+            <a href="/posts/<%= post.id %>">Read More</a>
+          </p>
+        </div>
+        <p>
+        </p>
+      </div>
+      <% end %>
+      <br>
+      <%= link_to 'New Post', new_post_path %>
     </div>
 
-    <div class="col s3"><br><br>
-      <tbody>
-            <% @posts.take(2).each do |post| %>
-              <tr>
-                <td><b><%= post.title %></b><br></td>
-              </tr>
-              <tr><td><%= post.body %></td></tr>
-              <tr>
-                <td><%= link_to 'Show', post %></td>
-              </tr><br><br>
-          <% end %>
-          </tbody>
-    </div>
+   <%= render 'layouts/hot_picks'%>
+  </div>
 </div>
+>>>>>>> 780fc5fccf4c2f1847b7e49145e28e7735cc4d16

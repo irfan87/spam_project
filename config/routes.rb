@@ -9,7 +9,7 @@ devise_for :users, controllers: {registrations: 'users/registrations', omniauth_
   # devise_for :users, controllers: { sessions: "users/sessions" }
 
   root 'posts#index'
-
+  
   # get 'home/index'
 
   resources :users, :only => [:show]

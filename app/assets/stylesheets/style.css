@@ -1,74 +1,65 @@
-body {margin:0;}
-
-.navi {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    /*overflow: hidden;*/
-    border: 1px solid #e7e7e7;
-    background-color: #f3f3f3;
-
-    top: 0;
-    /*width: 100%;*/
-    display: flex;
+/* body */
+html {
+	position: relative;
+	min-height: 100%;
 }
 
-.navi_contents {
-    /*float: left;*/
-    padding: 15px;
+body {
+	margin-bottom: 60px;
 }
 
-.navi_contents a {
-    /*display: block;*/
-    color: #666;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+.post_contents {
+	/*border: 1px solid black;*/
+	padding: 4px 26px 21px;
+	margin-bottom: 14px;
+
+	/* border radius */
+	
+	/*border-radius: 30px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;*/
+
+	border-bottom: 1px solid #f5f5f5;
 }
 
-.navi_contents a:hover:not(.active) {
-    background-color: #ddd;
+/* sidebar nav */
+.hot_picks_nav {
+	border-bottom: 1px solid #f5f5f5;
+	margin-bottom: 10px;
+	padding: 4px 20px 15px;
 }
 
-.navi_contents a.active {
-    color: white;
-    background-color: #4CAF50;
+/* navbar-default */
+.navbar-default {
+	background-color: orange;
+	font-weight: bold;
 }
 
-#nav-links{
-    display: flex;
-    justify-content: space-between; 
-    background: #f3f3f3;
+.navbar-header > a, .navbar-nav > li > a {
+	color: white !important;
+}
+
+.navbar-nav > li > a:hover {
+	background-color: orange !important;
+}
+
+/* footer */
+.footer {
+	position: absolute;
+    bottom: 0;
+    background-color: orange;
     width: 100%;
-    position: fixed;
+    height: 146px;
+    margin: 13px 15px -117px 0;
+    padding: 10px 7px 0 0;
+    color: white;
 }
 
-#main-container{
-    width: auto
+.trademark {
+	text-align: center;
 }
 
-#container {
-    padding: 20px 80px 10px 60px;
-} 
-
-.all_posts, #footer-nav{
-    list-style: none;
-}
-
-#comments_container {
-    width: 800px;
-    border-radius: 25px;
-    -webkit-border-radius: 25px;
-    -moz-border-radius: 25px;
-    padding: 20px;
-    height: 150px;
-}
-
-@media all and (min-width: 300px){
-    #container {
-        padding: 19px 86px 28px 85px;
-        font-size: 1.05em;
-        float: left;
-        margin: 20px;
-    }
+/* carousel */
+.carousel_images {
+	margin-top: -72px;
 }

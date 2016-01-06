@@ -6,12 +6,18 @@ gem 'devise-async'
 gem 'omniauth-facebook'
 gem 'rails', '4.2.5'
 gem 'figaro'
+gem 'kaminari'
+
 # Use sqlite3 as the database for Active Record
 # Use as the database for Active Record
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
+
+# we are using bootstrap framework for this project
+gem 'bootstrap-sass'
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -21,9 +27,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'meta-tags-helpers'
 
-# Froala plugin for dynamic form
-gem 'wysiwyg-rails'
-gem 'font-awesome-rails'
+# Tinymce plugin for dynamic form
+gem 'tinymce-rails'
 
 # Searching made easy
 gem 'searchkick'

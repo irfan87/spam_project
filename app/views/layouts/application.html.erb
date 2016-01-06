@@ -5,22 +5,20 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script type="text/javascript">var switchTo5x=true;</script>
-  <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-  <script type="text/javascript">stLight.options({publisher: "87cf6003-bacb-4c2e-afdb-d11bd959046b", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+  <%= tinymce_assets %>
 </head>
 <body>
-	<div id="nav-container">
-		<%= render "layouts/navbar" %>
-	</div>
-	<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <div id="main-container">
-  		<%= yield %>
-  	</div>
-  	<%= render "layouts/footer" %>
+	<div class="container-fluid">
+   <div class="row">
+    <div id="nav-container">
+      <%= render "layouts/navbar" %>
+    </div>
+    <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <div id="main-container">
+        <%= yield %>
+      </div>
+    <%= render "layouts/footer" %>
+   </div> 
+  </div>
 </body>

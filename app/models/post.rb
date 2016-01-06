@@ -4,8 +4,8 @@ class Post < ActiveRecord::Base
 	has_many	:categories, through: :post_categories
 	has_many	:post_categories
 
+	mount_uploader :photo, PhotoUploader
 	accepts_nested_attributes_for :categories
-	
 	searchkick text_start: [:title], suggest: [:title]
 
 	def search_data

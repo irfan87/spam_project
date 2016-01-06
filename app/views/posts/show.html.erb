@@ -8,6 +8,7 @@
   View counts: <%= @post.click_count %><br>
   <p>
       <div>
+        <%= link_to image_tag(@post.photo_url(:thumb)), @post.photo_url %>
         <%= @post.body.html_safe %>
       </div>
   </p>

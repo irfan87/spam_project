@@ -30,12 +30,9 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-
     @post = current_user.posts.new(post_params)
-
     respond_to do |format|
       if @post.save
-
 # ------ Categories -----------#
         groups = []
         category_params[:categories][:group].split(",").each do |x|
@@ -93,7 +90,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:user_id, :title, :body, :click_count )
+      params.require(:post).permit(:user_id, :title, :body, :click_count, :photo )
     end
 
     def category_params

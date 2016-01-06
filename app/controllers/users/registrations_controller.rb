@@ -1,12 +1,30 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-# before_filter :configure_sign_up_params, only: [:create]
+before_filter :configure_permitted_parameters, only: [:create, :update]
 # before_filter :configure_account_update_params, only: [:update]
 
+  protected
+
+def update_resource(resource, params)
+  if !current_user.nil?
+    if !current_user.provider.nil?
+      resource.update_without_password(params)
+    else
+      resource.update_with_password(params)
+    end
+  end
+end
   # GET /resource/sign_up
   # def new
   #   super
   # end
+  def configure_permitted_parameters
 
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :first_name, :last_name, :email, :password,
+      :password_confirmation) }
+
+    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :email, :password,
+      :password_confirmation, :current_password, :first_name, :last_name) }
+  end
   # POST /resource
   # def create
   #   super

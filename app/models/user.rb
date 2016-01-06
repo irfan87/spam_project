@@ -8,6 +8,18 @@ class User < ActiveRecord::Base
   	has_many :posts
   	has_many :comments
 
+  	validates :username,
+      :presence => true, unless: -> { from_omniauth? },
+	  :uniqueness => { :case_sensitive => false }, unless: -> { from_omniauth? },
+      # :format => { with: /\A[a-zA-Z]+\z/ },
+      :length => { in: 4..20 }, unless: -> { from_omniauth? }
+
+	private
+
+	def from_omniauth?
+	  provider && uid
+	end
+
 	def self.new_with_session(params, session)
 		super.tap do |user|
 		   if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
@@ -33,7 +45,7 @@ class User < ActiveRecord::Base
 	    user.email = auth.info.email
 	    user.password = Devise.friendly_token[0,20]
 	    user.image = auth.info.image # assuming the user model has an image
-	    user.username = auth.info.name   # assuming the user model has a name
+	    # user.username = auth.info.name   # assuming the user model has a name
 	    user.last_name = auth.info.last_name
 	    user.first_name = auth.info.first_name
 	  end

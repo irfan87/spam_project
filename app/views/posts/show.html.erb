@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container" id="post-container">
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-12">
       <p id="notice"><%= notice %></p>
       <div class="dropdown">
         <a href="#" data-toggle="dropdown" id="dropdown-hover" class="dropdown-toggle">
@@ -12,7 +12,7 @@
         </ul>
       </div>
       <p>
-        <strong><%= @post.user.username.capitalize %> created this page <%= time_ago_in_words(@post.created_at) %> ago</strong>  
+        <strong><%= @post.user.username.capitalize %> created this page on <%= time_ago_in_words(@post.created_at) %> ago</strong>
       </p>
       <p>
         <strong>Visitors: <%= @post.click_count %></strong>
@@ -24,9 +24,9 @@
           </div>
       </p>
       <i>filed under:
-          <% a = [] %> 
+          <% a = [] %>
             <% @post.categories.each do |category| %>
-              <%a << category.group %>  
+              <%a << category.group %>
             <% end %>
           <%= a.join(', ')%></i>
       <br>

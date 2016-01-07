@@ -28,7 +28,9 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-user"></i> <%= current_user.email %> <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li>
+							<% if can? :create, Post %>
               <%= link_to "New Post", new_post_path %>
+							<% end %>
             </li>
             <li>
             <%= link_to "Edit Account", edit_user_registration_path %>

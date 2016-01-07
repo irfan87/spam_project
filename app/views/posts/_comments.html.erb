@@ -12,10 +12,10 @@
 				</div>
 			<% end %>
 		</div>
-		<div>
 			<% @post.comments.each do |comment| %>
+			<div class="comment-container">
 			<p><%= render partial: comment %></p>
+			</div>
 			<% end %>
-		</div>
 	</div>
 </div>

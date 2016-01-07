@@ -4,9 +4,8 @@ class PostsController < ApplicationController
 
   def index
     query = params[:q].presence || "*"
-    @posts = Post.search query, suggest: true
-
     #new @posts for pagination
+    @posts = Post.search query, suggest: true
     @post = Post.order(click_count: :desc).page(params[:page]).per(3)
       if !current_user.nil?
         if current_user.username.nil?

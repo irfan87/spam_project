@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  rolify
+
   # Include default ldevise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 

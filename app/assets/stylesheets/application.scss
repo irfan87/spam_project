@@ -12,13 +12,9 @@
  *
  *= require jquery-ui
  *= require_self
- 
+
  *= require style.css.scss
  */
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
-#main-container {
-	margin: 30px;
-}

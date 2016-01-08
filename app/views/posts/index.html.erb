@@ -11,7 +11,7 @@
   </div>
 
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-8" id="posts-container">
       <h2>Hot Education Topic!</h2>
       <%= paginate @post %>
       <% @post.each do |post| %>
@@ -29,7 +29,6 @@
         </div>
         <div>
           <p>
-            <%= link_to image_tag(post.photo_url(:thumb)), post.photo_url %>
             <%= truncate post.body.html_safe, length:350 %>
             <a href="/posts/<%= post.id %>">Read More</a>
           </p>
@@ -38,11 +37,9 @@
         </p>
       </div>
       <% end %>
-      <% if can? :create, Post %>
-       <%= link_to 'New Post', new_post_path %>
-       <% end %>
       <br>
     </div>
+    <div></div>
    <%= render 'layouts/hot_picks'%>
   </div>
 </div>

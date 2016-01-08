@@ -1,0 +1,23 @@
+<% @post.each do |post| %>
+          <div class="post_contents">
+            <h3>
+              <a href="/posts/<%= post.id %>"><%= post.title %></a>
+            </h3>
+              <div>
+                <p>
+                  <strong>
+                    Posted by <%= post.user.username.capitalize %>
+                    <%= time_ago_in_words(post.created_at) %> ago and viewed by <%= post.click_count %> peoples.
+                  </strong>
+                </p>
+              </div>
+              <div>
+                <p>
+                  <%= truncate post.body.html_safe, length:350 %>
+                  <a href="/posts/<%= post.id %>">Read More</a>
+                </p>
+              </div>
+              <p>
+              </p>
+            </div>
+          <% end %>

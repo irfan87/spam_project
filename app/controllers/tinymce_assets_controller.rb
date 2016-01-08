@@ -9,5 +9,6 @@ class TinymceAssetsController < ApplicationController
          url: file_uploader.url
       }
     }, content_type: "text/html"
+    byebug
   end
 end

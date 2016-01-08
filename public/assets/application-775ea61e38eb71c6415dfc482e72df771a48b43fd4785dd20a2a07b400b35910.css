@@ -4329,6 +4329,7 @@ li a.active {
 
 #search {
     height: 1.5rem;
+    width: 200%;
 }
 
 #sharingbutton {

@@ -1,19 +1,13 @@
 <div class="container">
-  <%= render "layouts/carousel"%>
-
   <div class="row">
     <p id="notice">
       <%= notice %>
-      <% if @posts.suggestions.any? %>
-        <p>Did you mean <%= @posts.suggestions.first %></p>
-      <% end %>
     </p>
   </div>
   
   <div class="row">
     <div class="col-md-8">
-      <h2>Hot Education Topic!</h2>
-      <%= paginate @post %>
+      <h2>Most Viewed Sp-A-rticles</h2>
       <% @post.each do |post| %>
       <div class="post_contents">
         <h3>
@@ -41,6 +35,10 @@
     </div>
 
    <%= render 'layouts/hot_picks'%>
+  </div>
+
+  <div class="row">
+      <%= paginate @post, :theme => 'twitter-bootstrap-3', :pagination_class => "pagination-sm" %>
   </div>
 </div>
 

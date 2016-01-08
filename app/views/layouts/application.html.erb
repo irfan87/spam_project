@@ -6,15 +6,15 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= tinymce_assets %>
-
 </head>
+
 <body>
-	<div class="container-fluid">
+  <div class="container-fluid">
    <div class="row">
     <div id="nav-container">
       <%= render "layouts/navbar" %>
     </div>
-      <p class="alert"><%= alert %></p>
+      <br><br><br><br>
       <div id="main-container">
         <%= yield %>
       </div>

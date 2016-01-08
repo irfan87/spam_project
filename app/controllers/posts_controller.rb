@@ -7,10 +7,14 @@ class PostsController < ApplicationController
     #new @posts for pagination
     @posts = Post.search query, suggest: true
     @post = Post.order(click_count: :desc).page(params[:page]).per(3)
-      if !current_user.nil?
-        if current_user.username.nil?
+    if !current_user.nil?
+      if current_user.username.nil?
           redirect_to edit_user_registration_path
       end
+    end
+    respond_to do |format|
+      format.js
+      format.html
     end
   end
 

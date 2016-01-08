@@ -7,6 +7,7 @@ gem 'omniauth-facebook'
 gem 'rails', '4.2.5'
 gem 'figaro'
 gem 'kaminari'
+gem 'bootstrap-kaminari-views'
 gem 'cancancan', '~> 1.10'
 gem 'rolify' 
 # Use sqlite3 as the database for Active Record

@@ -1,0 +1,2 @@
+$('#post').html('<%=j render(:partial => @post) %>');
+$('#paginator').html('<%=j (paginate(@post, :remote => true, :theme => "twitter-bootstrap-3", :pagination_class => "pagination-sm").to_s) %>');

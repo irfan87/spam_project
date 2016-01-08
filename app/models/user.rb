@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   	has_many :posts
   	has_many :comments
 
+  	mount_uploader :image, UserImageUploader
   	validates :username,
       :presence => true, unless: -> { from_omniauth? },
 	  :uniqueness => { :case_sensitive => false }, unless: -> { from_omniauth? },

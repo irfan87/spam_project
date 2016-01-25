@@ -20,8 +20,6 @@ gem 'coffee-rails', '~> 4.1.0'
 # we are using bootstrap framework for this project
 gem 'bootstrap-sass'
 
-gem 'rubocop', require: false
-
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -60,6 +58,9 @@ group :development, :test do
 end
 
 group :development do
+	# rubocop rails
+  gem 'rubocop', require: false
+  
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 

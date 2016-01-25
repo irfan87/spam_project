@@ -20,6 +20,8 @@ gem 'coffee-rails', '~> 4.1.0'
 # we are using bootstrap framework for this project
 gem 'bootstrap-sass'
 
+gem 'rubocop', require: false
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

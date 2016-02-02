@@ -1,6 +1,11 @@
 class CommentsController < ApplicationController
 	before_action :set_comments, only: [:show, :edit, :update, :destroy]
 
+  def show
+    @post = Post.find(params[:post_id])
+    comment = @post.comment.find(comment_params)
+  end
+
 	def create
   	 @post = Post.find(params[:post_id])
      @comment = @post.comments.new(comment_params)
@@ -14,9 +19,6 @@ class CommentsController < ApplicationController
      else
       render :new
     end
-  end
-
-  def show
   end
 
 

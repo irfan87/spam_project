@@ -21,6 +21,9 @@ class PostsController < ApplicationController
   def show
     @post.click_count += 1
     @post.save
+
+    @post = Post.find(params[:id])
+    comment = @post
   end
 
   def new
